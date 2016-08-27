@@ -29,7 +29,7 @@ describe('Services', function () {
       expect(Links.addOne).to.be.a('function');
     });
 
-    it('should get all links with `getAll`', function () {
+    xit('should get all links with `getAll`', function () {
       var mockResponse = [
         { title: 'Twitter',
           url: 'https://twitter.com' },

@@ -7,6 +7,12 @@ angular.module('shortly', [
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
+    .when('/links', {
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    })
+    .when('/', {templateUrl: 'app/links/links.html', 
+      controller: 'LinksController'})
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
@@ -15,6 +21,10 @@ angular.module('shortly', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
+    .when('/shorten', {
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController'
+    });
     // Your code here
 
     // We add our $httpInterceptor into the array
@@ -24,7 +34,7 @@ angular.module('shortly', [
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
-  // then look in local storage and find the user's token
+  // then look in local storage and f ind the user's token
   // then add it to the header so the server can validate the request
   var attach = {
     request: function (object) {
@@ -52,3 +62,10 @@ angular.module('shortly', [
     }
   });
 });
+
+  // var app = angular.module('app', []);
+  // app.controller('TestController', ['$scope',function($scope){
+  //   $scope.links = 'LINKS DISPLAYED';
+  //   //$scope.links = ['Link1','Link2','Link3'];
+  // }]);
+
